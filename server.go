@@ -10,6 +10,9 @@ func main() {
 	router := gin.Default()
 	//กำหนด static folder
 	router.Static("/images", "./uploaded/images")
+	router.GET("/go", func(c *gin.Context) {
+		c.JSON(200, gin.H{"status": "ok"})
+	})
 	//api.Setup(router)
 	router.Run(":8081")
 }
