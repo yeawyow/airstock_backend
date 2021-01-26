@@ -16,6 +16,9 @@ func main() {
 	router.GET("/profile", func(c *gin.Context){
 		c.JSON(200 ,gin.H{"status":"profile"})
 	})
+	router.POST("/profile",funce(c *gin.Context){
+		c.JSON(200,gin.H{"status":"post profile"})
+	})
 	//api.Setup(router)
 	router.Run(":8081")
 }
