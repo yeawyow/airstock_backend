@@ -13,6 +13,9 @@ func main() {
 	router.GET("/go", func(c *gin.Context) {
 		c.JSON(200, gin.H{"status": "ok"})
 	})
+	router.GET("/profile", func(c *gin.Context){
+		c.JSON(200 ,gin.H{"status":"profile"})
+	})
 	//api.Setup(router)
 	router.Run(":8081")
 }
