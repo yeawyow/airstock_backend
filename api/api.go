@@ -1,12 +1,17 @@
 package api
 
 import (
+	"main/db"
+
 	"github.com/gin-gonic/gin"
 )
 
-func Setup(router *gin.Engine)  {
-
+// Setup - call this method to setup route
+func Setup(router *gin.Engine) {
+	
+	db.SetupDB()
 	setupAuthenAPI(router)
 	setupProductAPI(router)
-		
+	setupTransActionAPI(router)
+
 }
