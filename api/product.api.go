@@ -1,14 +1,16 @@
 package api
 
 import (
+	"main/interceptor"
 	"github.com/gin-gonic/gin"
 )
 
-func setupProductAPI(router *gin.Engine) {
+
+func SetupProductAPI(router *gin.Engine) {
 	productAPI := router.Group("/api/v2")
 	{
-		   productAPI.GET("/product", getProduct)
-		   productAPI.POST("/product", createProduct)
+		   productAPI.POST("/product",interceptor.JwtVerify, getProduct)
+		   productAPI.GET("/product", createProduct)
 	}
 	
 }
