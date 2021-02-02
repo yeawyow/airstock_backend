@@ -1,2 +1,67 @@
-POST  http://localhost:8081/api/v2/product HTTP/1.1
-Authorization: 
+### Create
+POST http://localhost:8081/api/v2/product HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTIxMDQ3ODQsImlkIjoyLCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiYWRtaW4yIn0.LtkApRekw6l_d-fcCaFjAKWUM6YzNMLIXTh8jj3vE-k
+Content-Type: multipart/form-data; boundary=12345
+
+--12345
+Content-Disposition: form-data; name="name";
+
+Arduino Board
+--12345
+Content-Disposition: form-data; name="stock";
+
+100
+--12345
+Content-Disposition: form-data; name="price";
+
+180
+--12345
+Content-Disposition:form-data; name="image"; filename="2.jpg"
+Content-Type: image/png
+
+< ./2.jpg
+--12345--
+
+### edit
+PUT http://localhost:8081/api/v2/product HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE5OTA1NjIsImlkIjoyLCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiYWRtaW4yIn0.1PbS1iIfHKbIvfDfpVzH-RJPXnGOm2xN2yIQr_5kvSc
+Content-Type: multipart/form-data; boundary=12345
+
+--12345
+Content-Disposition: form-data; name="id";
+
+5
+--12345
+Content-Disposition: form-data; name="name";
+
+didf
+--12345
+Content-Disposition: form-data; name="stock";
+
+200
+--12345
+Content-Disposition: form-data; name="price";
+
+500
+--12345
+Content-Disposition:form-data; name="image"; filename="C0012.jpg"
+Content-Type: image/png
+
+< ./C0012.jpg
+--12345--
+
+
+
+### getproduct
+GET  http://localhost:8081/api/v2/product HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE5ODk5NDYsImlkIjoyLCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiYWRtaW4yIn0.zFsYn1eLVewstiA69-Ay8qVbpZVbo3CLAdzMjFFXRe0
+
+
+### getproduct by id
+GET  http://localhost:8081/api/v2/product/4 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE5ODk5NDYsImlkIjoyLCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiYWRtaW4yIn0.zFsYn1eLVewstiA69-Ay8qVbpZVbo3CLAdzMjFFXRe0
+
+
+### getproduct by keyword
+GET  http://localhost:8081/api/v2/product?keyword= HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTE5ODk5NDYsImlkIjoyLCJsZXZlbCI6Im5vcm1hbCIsInVzZXJuYW1lIjoiYWRtaW4yIn0.zFsYn1eLVewstiA69-Ay8qVbpZVbo3CLAdzMjFFXRe0

@@ -22,5 +22,6 @@ func SetupDB() {
 		panic("failed to connect database")
 	}
 	database.AutoMigrate(&model.User{})
+	//database.AutoMigrate(&model.Product{})
 	db = database
 }
